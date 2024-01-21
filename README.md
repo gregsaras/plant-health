@@ -30,11 +30,11 @@ A project to track data about my house plant(s).
     - Update the permissions on the script by running `chmod u+x reader.sh`.
     - Create a new screen by running `screen -S reader`.
     - Start the reader by running `./reader.sh`
-    - Use ctrl + a followed by \ to exit the screen and leave it running in the background.
+    - Use ctrl + a followed by d to exit the screen and leave it running in the background.
 8. Serve the data file
     - Create a new screen by running `screen -S server`.
     - Start a python server in the same directory as the `reader.sh` file by running `python3 -m http.server`
-    - Use ctrl + a followed by \ to exit the screen and leave it running in the background.
+    - Use ctrl + a followed by d to exit the screen and leave it running in the background.
 9. Using a browser on a device that is on the same network as the Pi, navigate to `{{pi IP address}}:8000/sensor_data.txt` to see a list of values read by the sensor.
 10. Refresh this page to see updated data.
 11. Once the dataflow is working, setup the hardware near your plant and place the sensors in the soil. Before restarting the devices you may want to clear out the data file.
