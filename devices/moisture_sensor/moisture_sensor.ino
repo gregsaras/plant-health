@@ -1,9 +1,15 @@
-void setup() {
-  // put your setup code here, to run once:
+// Device: Arduino Uno WiFi Rev 2
+// Device Firmware: 1.5.0
 
+int moistureSensorInput = 0;
+
+void setup() {
+  Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  float moistureSensorValue = analogRead(moistureSensorInput);
+  Serial.println(moistureSensorValue);
 
+  delay(500);
 }
