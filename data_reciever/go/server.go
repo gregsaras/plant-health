@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"strconv"
+	"time"
 )
 
 func main() {
@@ -39,11 +41,11 @@ func handleClient(conn net.Conn) {
 			return
 		}
 
-		go writeMessage(string(buffer[:n]))
+		writeMessage(string(buffer[:n]), time.Now().Unix())
 	}
 }
 
-func writeMessage(str string) {
+func writeMessage(str string, messageTime int64) {
 	if _, err := os.Stat("../data.csv"); err != nil {
 		if os.IsNotExist(err) {
 			f, err := os.Create("../data.csv")
@@ -63,7 +65,7 @@ func writeMessage(str string) {
 		return
 	}
 
-	line, err := fmt.Fprintln(f, str)
+	line, err := fmt.Fprintln(f, str+","+strconv.Itoa(int(messageTime)))
 	if err != nil {
 		fmt.Println(err)
 		return
