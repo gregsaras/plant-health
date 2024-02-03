@@ -8,7 +8,7 @@ void setup() {
 void loop() {
   String payload = "";
   for(int i = 0; i < 6; i++){
-    payload = payload + i + ":" + analogRead(i);
+    payload = payload + analogRead(i);
     if (i != 5){
       payload = payload + ",";
     }
